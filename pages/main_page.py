@@ -4,6 +4,7 @@ import math
 from selenium.common.exceptions import NoAlertPresentException
 import time
 
+
 class MainPage(BasePage): 
     def go_to_basket_button(self):
        login_link = self.browser.find_element(By.XPATH, "//button [text()='Add to basket']")
@@ -37,3 +38,24 @@ class MainPage(BasePage):
         price_book_in_basket = self.browser.find_element(By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1) > strong")
         assert price_book.text == price_book_in_basket.text, "Price isn't correct"
 
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(By.CSS_SELECTOR, "#messages > div.alert.alert-safe.alert-noicon.alert-info.fade.in > div > p:nth-child(1) > strong"), \
+       "Success message is presented, but should not be"
+
+
+        
+        
+
+
+
+        
+
+
+
+        
+        
+
+
+
+
+        
