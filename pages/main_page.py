@@ -57,3 +57,10 @@ class MainPage(BasePage):
         CORRECT_LOGIN_URL = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/" 
         assert self.browser.current_url == CORRECT_LOGIN_URL, "URL is not correct"
 
+    def go_to_basket_page(self):
+        link = self.browser.find_element(*BasePageLocators.BASKET_BUTTON)
+        link.click()
+        
+    def should_be_message_about_empty_basket(self):
+        assert self.is_element_present(*BasePageLocators.BASKET_EMPTY_MESSAGE), "Message about empty basket isn't present"
+
