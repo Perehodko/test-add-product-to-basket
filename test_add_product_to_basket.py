@@ -19,7 +19,7 @@ def test_guest_can_click_button(browser, link):
     page.open()                      # открываем страницу
     page.go_to_basket_button()       # выполняем метод страницы - переходим на страницу логина
     page.solve_quiz_and_get_code()
-    time.sleep(1)
+    #time.sleep(1)
     page.should_be_congrats_about_add_item_to_basket()
     page.should_be_correct_price()
 
@@ -28,7 +28,6 @@ def test_guest_cant_see_success_message(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_not_be_success_message()
-
     
 
     
