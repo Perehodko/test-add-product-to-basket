@@ -2,6 +2,7 @@ from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from .locators import BasePageLocators
 
 class BasePage(object):
     def __init__(self, browser, url):
@@ -17,3 +18,10 @@ class BasePage(object):
         except TimeoutException:
             return True
         return False
+
+    def is_element_present(self, how, what):
+        try:
+            self.browser.find_element(how, what)
+        except NoSuchElementException:
+            return False
+        return True
